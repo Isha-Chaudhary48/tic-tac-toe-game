@@ -37,9 +37,11 @@ boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (ternO) {
       box.innerText = "O";
+      box.style.color = "blue";
       ternO = false;
     } else {
       box.innerText = "X";
+      box.style.color = "yellow";
       ternO = true;
     }
 
@@ -69,13 +71,21 @@ function checkWinner() {
       if (pos1 === pos2 && pos2 === pos3) {
         showWinner(pos3);
       }
-      if (pos1 != pos2 && pos2 != pos3) {
-        console.log("TIE!!!!");
-        showTie();
-      }
     }
   }
 }
+// let allFilled = true;
+// for (let i = 0; i < boxes.length; i++) {
+//   if (boxes[i].innerText === "") {
+//     allFilled = false;
+//     break;
+//   }
+// }
+
+// if (allFilled) {
+//   console.log("TIE!!!!");
+//   showTie();
+// }
 
 resetGame.addEventListener("click", resetButton);
 newGame.addEventListener("click", resetButton);
