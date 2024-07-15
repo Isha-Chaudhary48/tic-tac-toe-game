@@ -80,3 +80,14 @@ body {
   margin-left: 70px;
   margin-top: 20px;
 }
+
+@media (max-width: 780px) {
+  .box {
+    height: 4rem;
+    width: 5rem;
+    margin-left: 15px;
+    /* margin-top: px; */
+
+    font-size: 30px;
+  }
+}

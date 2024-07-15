@@ -74,18 +74,25 @@ function checkWinner() {
     }
   }
 }
+
 // let allFilled = true;
 // for (let i = 0; i < boxes.length; i++) {
-//   if (boxes[i].innerText === "") {
-//     allFilled = false;
-//     break;
+//   if (checkWinner != winningPatterns) {
+//     showTie();
 //   }
 // }
+let allFilled = true;
+for (let i = 0; i < boxes.length; i++) {
+  if (boxes[i].innerText === "") {
+    allFilled = false;
+    break;
+  }
+}
 
-// if (allFilled) {
-//   console.log("TIE!!!!");
-//   showTie();
-// }
+if (allFilled) {
+  console.log("TIE!!!!");
+  showTie();
+}
 
 resetGame.addEventListener("click", resetButton);
 newGame.addEventListener("click", resetButton);
