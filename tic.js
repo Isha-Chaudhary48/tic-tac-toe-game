@@ -4,6 +4,7 @@ let msgContainer = document.querySelector(".msgContainer");
 let resetGame = document.querySelector(".resetGame");
 let newGame = document.querySelector(".newGame");
 let ternO = true;
+let moves = 0;
 const winningPatterns = [
   [0, 1, 2],
   [3, 4, 5],
@@ -16,6 +17,8 @@ const winningPatterns = [
 ];
 
 const resetButton = () => {
+  ternO = true; // Reset to true to start with 'O'
+  moves = 0;
   ternO = false;
   enableBoxes();
   msgContainer.classList.add("hide");
@@ -46,6 +49,7 @@ boxes.forEach((box) => {
     }
 
     box.disabled = true;
+    moves++;
     checkWinner();
   });
 });
@@ -57,7 +61,8 @@ const showWinner = (winner) => {
 };
 
 const showTie = () => {
-  msg.innerText = `The game is Tied!!!`;
+  msg.innerText = `  Game is tied!!`;
+  msg.style.textAlign = "center";
   msgContainer.classList.remove("hide");
   disableBoxes();
 };
@@ -73,25 +78,9 @@ function checkWinner() {
       }
     }
   }
-}
-
-// let allFilled = true;
-// for (let i = 0; i < boxes.length; i++) {
-//   if (checkWinner != winningPatterns) {
-//     showTie();
-//   }
-// }
-let allFilled = true;
-for (let i = 0; i < boxes.length; i++) {
-  if (boxes[i].innerText === "") {
-    allFilled = false;
-    break;
+  if (moves === 9) {
+    showTie();
   }
-}
-
-if (allFilled) {
-  console.log("TIE!!!!");
-  showTie();
 }
 
 resetGame.addEventListener("click", resetButton);
